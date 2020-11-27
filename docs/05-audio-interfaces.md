@@ -1,6 +1,6 @@
 # Audio interfaces
 
-If you want to upgrade the sound quality of your balenaSound devices, or if your board has no onboard soundcard, you'll probably want to add an external soundcard. Generally these come in two flavours: **USB soundcards** or **DAC boards**. Both alternatives are widely supported in balenaSound.
+If you want to upgrade the sound quality of your balenaSound devices, or if your board has no onboard soundcard, you'll probably want to add an external soundcard. Generally these come in two flavors: **USB soundcards** or **DAC boards**. Both alternatives are widely supported in balenaSound.
 
 Checkout the [customization](../docs/customization#general) section to learn how to select which audio interface to use. For a detailed and up to date list of what interfaces are supported on each device check out the audio block [documentation](https://github.com/balenablocks/audio#supported-devices) section.
 
@@ -60,8 +60,8 @@ These are the DACs that are known to work with balenaSound. If your DAC is not o
 | [Hifiberry DAC+ DSP][23]      | hifiberry-dac                         | Yes
 | [Hifiberry MiniAmp][24]       | hifiberry-dac                         | Yes
 | [Hifiberry DAC2 HD][27]       | hifiberry-dacplushd                   | Yes
-| [Adafruit I2S Audio Bonnet][26]| "hifiberry-dac”, “i2s-mmap”          | Yes
-| [Adafruit MAX98357 I2S Class-D Mono Amp][28]| "hifiberry-dac”, “i2s-mmap”          | Yes
+| [Adafruit I2S Audio Bonnet][26]| "hifiberry-dac","i2s-mmap"           | Yes
+| [Adafruit MAX98357 I2S Class-D Mono Amp][28]| "hifiberry-dac”,"i2s-mmap" | Yes
 
 [1]: http://www.suptronics.com/Xseries/x400.html
 [2]: https://shop.pimoroni.com/products/phat-dac
