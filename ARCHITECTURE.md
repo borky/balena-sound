@@ -70,7 +70,6 @@ Standalone mode is easy to understand. You just pipe ` balena-sound.input` to `b
 
 ### Multiroom
 ![](https://raw.githubusercontent.com/balenalabs/balena-sound/master/docs/images/arch-multiroom.png)
-*Note that this image is currently outdated. FIFO file is no longer being used as of v3.4.0. Image update pending.*
 
 Multiroom feature relies on `snapcast` to broadcast the audio to multiple devices. Snapcast has two binaries working alonside, server and client.
 
@@ -100,7 +99,8 @@ If your application does not have built-in PulseAudio support, you can create a 
 
 ```
 ENV PULSE_SERVER=tcp:localhost:4317
-RUN curl -sL https://raw.githubusercontent.com/balenablocks/audio/master/scripts/alsa-bridge/debian-setup.sh | sh
+RUN curl -skL https://raw.githubusercontent.com/balenablocks/audio/master/scripts/alsa-bridge/debian-setup.sh | sh
 ```
 
+Check the [audio block](https://github.com/balenablocks/audio/tree/master/scripts/alsa-bridge) repository for alternative scripts if you are not running a debian based container.
 Note that you still need to set the `PULSE_SERVER` variable.
