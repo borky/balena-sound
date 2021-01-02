@@ -1,4 +1,4 @@
-FROM balenalib/raspberrypi3-debian:buster
+FROM balenalib/raspberrypi4-64-debian:buster
 
 WORKDIR /usr/src/
 
@@ -9,7 +9,7 @@ RUN curl -sL https://raw.githubusercontent.com/balenablocks/audio/master/scripts
 COPY start.sh .
 COPY squeezelite.sha1 .
 
-RUN curl -sL https://downloads.sourceforge.net/project/lmsclients/squeezelite/linux/squeezelite-1.9.7.1283-armv6hf.tar.gz > squeezelite.tar.gz
+RUN curl -sL https://downloads.sourceforge.net/project/lmsclients/squeezelite/linux/squeezelite-1.9.8.1307-aarch64.tar.gz > squeezelite.tar.gz
 RUN tar -xf squeezelite.tar.gz
 
 CMD [ "/bin/bash", "/usr/src/start.sh" ]
