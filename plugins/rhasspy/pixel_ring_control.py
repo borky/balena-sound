@@ -113,32 +113,36 @@ def connect_mqtt():
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
             print("Connected to MQTT Broker!")
+
+            client.subscribe("hermes/nlu/#", qos = 1)
+            client.subscribe("hermes/tts/#", qos = 1)
+            client.subscribe("hermes/handle/#", qos = 1)
+            client.subscribe("hermes/error/#", qos = 1)
+            client.subscribe("hermes/hotword/#", qos = 1)
+            client.subscribe("hermes/dialogueManager/#", qos = 1)
+            client.subscribe("hermes/asr/#", qos = 1)
+            print("Subscribed to RHASSPY MQTT Topics!")
         else:
             print("Failed to connect, return code %d\n", rc)
 
     clientid = 'pixel-ring-%s' % os.getpid()
-    mqtt = paho.Client(clientid, clean_session=True)
+    mqtt = paho.Client(clientid, clean_session=False)
     mqtt.on_connect = on_connect
     mqtt.on_message = on_message
     if MQTTUSERNAME is not None or MQTTPASSWORD is not None:
         mqtt.username_pw_set(MQTTUSERNAME, MQTTPASSWORD)
 
-    mqtt.connect(MQTTHOST, MQTTPORT)
+    mqtt.connect(MQTTHOST, MQTTPORT, 60)
 
     return mqtt
 
 mqtt = connect_mqtt()
 mqtt.loop_start()
 
-mqtt.subscribe("hermes/nlu/#")
-mqtt.subscribe("hermes/tts/#")
-mqtt.subscribe("hermes/handle/#")
-mqtt.subscribe("hermes/error/#")
-mqtt.subscribe("hermes/hotword/#")
-mqtt.subscribe("hermes/dialogueManager/#")
-mqtt.subscribe("hermes/asr/#")
-
-print("Subscribed to RHASSPY MQTT Topics!")
-
-while True:
-    time.sleep(1000)
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    pass
+finally:
+    mqtt.loop_stop()
