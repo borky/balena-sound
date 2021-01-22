@@ -60,6 +60,8 @@ export default class SoundConfig {
             startBalenaService('upnp')
             startBalenaService('bluetooth')
             startBalenaService('squeezelite')
+            startBalenaService('mpd')
+            startBalenaService('rhasspy')
 
             this.audioBlock.moveSinkInput(0, 3)
             break
@@ -71,6 +73,8 @@ export default class SoundConfig {
             stopBalenaService('upnp')
             stopBalenaService('bluetooth')
             stopBalenaService('squeezelite')
+            stopBalenaService('mpd')
+            stopBalenaService('rhasspy')
             
             // start
             startBalenaService('multiroom-client')
@@ -86,6 +90,8 @@ export default class SoundConfig {
             startBalenaService('upnp')
             startBalenaService('bluetooth')
             startBalenaService('squeezelite')
+            startBalenaService('mpd')
+            startBalenaService('rhasspy')
             
             this.audioBlock.moveSinkInput(0, 2)
             break

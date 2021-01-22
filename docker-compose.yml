@@ -90,3 +90,11 @@ services:
       - 12101:12101
     volumes:
       - rhasspy-profiles:/root/.config/rhasspy/profiles
+  wifi-connect:
+    image: balenablocks/wifi-connect:rpi
+    restart: always
+    network_mode: host
+    privileged: true
+    labels:
+      io.balena.features.dbus: "1"
+      io.balena.features.firmware: "1"
